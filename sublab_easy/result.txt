@@ -1,0 +1,133 @@
+
+================================================================================
+ROLE: policy_officer
+================================================================================
+E-01 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-02 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-03 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-04 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-05 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-06 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-07 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-08 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-09 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-10 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+
+================================================================================
+ROLE: front_desk
+================================================================================
+E-01 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-02 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-03 | parse=OK | found=True | decision=False | amount=True | missing_documents=True | ALL=False
+
+>>> RAW REPLY FOR SUBMISSION
+Role: front_desk
+Enquiry: E-03
+{
+  "applicant_id": "A-203",
+  "found": true,
+  "decision": "more_info",
+  "amount": 0,
+  "missing_documents": [],
+  "reason": "The record shows a GPA of 2.4, below the minimum 2.67. Please return with an updated transcript if the GPA record needs to be checked or corrected."
+}
+<<< END RAW REPLY
+
+E-04 | parse=OK | found=True | decision=False | amount=True | missing_documents=True | ALL=False
+E-05 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-06 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-07 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-08 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-09 | parse=OK | found=True | decision=False | amount=True | missing_documents=True | ALL=False
+E-10 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+
+================================================================================
+ROLE: auditor
+================================================================================
+E-01 | parse=OK | found=True | decision=False | amount=False | missing_documents=True | ALL=False
+E-02 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-03 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-04 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-05 | parse=OK | found=True | decision=False | amount=True | missing_documents=True | ALL=False
+E-06 | parse=OK | found=True | decision=False | amount=True | missing_documents=True | ALL=False
+E-07 | parse=OK | found=True | decision=False | amount=True | missing_documents=True | ALL=False
+E-08 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-09 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-10 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+
+================================================================================
+ROLE: bilingual_clerk
+================================================================================
+E-01 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-02 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-03 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-04 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-05 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-06 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-07 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+
+>>> RAW REPLY FOR SUBMISSION
+Role: bilingual_clerk
+Enquiry: E-07
+{
+  "applicant_id": "A-201",
+  "found": true,
+  "decision": "granted",
+  "amount": 250000,
+  "missing_documents": [],
+  "reason": "Жазбаға сәйкес GPA 3.4, табыс деңгейі 1 және қажетті құжаттардың (транскрипт пен жеке куәлік) екеуі де бар. 250 000 теңге грант тағайындалады."
+}
+<<< END RAW REPLY
+
+E-08 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-09 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+E-10 | parse=OK | found=True | decision=True | amount=True | missing_documents=True | ALL=True
+
+================================================================================
+FIELD MOVEMENT FROM POLICY OFFICER
+================================================================================
+
+found:
+  No movement
+
+decision:
+  front_desk: E-03 'refused' -> 'more_info'
+  front_desk: E-04 'refused' -> 'more_info'
+  front_desk: E-09 'refused' -> 'more_info'
+  auditor: E-01 'granted' -> 'more_info'
+  auditor: E-05 'granted' -> 'more_info'
+  auditor: E-06 'granted' -> 'more_info'
+  auditor: E-07 'granted' -> 'more_info'
+
+amount:
+  auditor: E-01 250000 -> 0
+
+missing_documents:
+  No movement
+
+================================================================================
+RAW REPLIES FOR SUBMISSION.MD
+================================================================================
+
+front_desk — E-03
+--------------------------------------------------------------------------------
+{
+  "applicant_id": "A-203",
+  "found": true,
+  "decision": "more_info",
+  "amount": 0,
+  "missing_documents": [],
+  "reason": "The record shows a GPA of 2.4, below the minimum 2.67. Please return with an updated transcript if the GPA record needs to be checked or corrected."
+}
+
+bilingual_clerk — E-07
+--------------------------------------------------------------------------------
+{
+  "applicant_id": "A-201",
+  "found": true,
+  "decision": "granted",
+  "amount": 250000,
+  "missing_documents": [],
+  "reason": "Жазбаға сәйкес GPA 3.4, табыс деңгейі 1 және қажетті құжаттардың (транскрипт пен жеке куәлік) екеуі де бар. 250 000 теңге грант тағайындалады."
+}
+(.venv) bryan@bryan-LOQ-15IRX9:~/ai-2026-hw2-michaelbryan$ 

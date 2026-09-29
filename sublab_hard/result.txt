@@ -1,0 +1,10 @@
+FINAL RANKING - COMPUTED IN PYTHON
+============================================================
+1. Aziza Bekova | A=5 R=5 E=2 | TOTAL=4.40
+2. Tamerlan Saparov | A=4 R=3 E=5 | TOTAL=3.90
+3. Aisha Nurlankyzy | A=5 R=3 E=2 | TOTAL=3.80
+4. Lyazzat Omarova | A=4 R=3 E=3 | TOTAL=3.50
+5. Dias Yerzhanov | A=3 R=2 E=5 | TOTAL=3.10
+6. Nurzhan Abilov | A=2 R=3 E=5 | TOTAL=2.90
+
+WINNER: Aziza Bekova (4.40)

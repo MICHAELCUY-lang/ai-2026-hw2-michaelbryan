@@ -1,0 +1,213 @@
+################################################################################
+RUN A — NEVER COMPRESSED
+################################################################################
+
+================================================================================
+A — NEVER COMPRESSED
+================================================================================
+
+TOKENS PER CONVERSATION CALL
+--------------------------------------------------------------------------------
+Call  1: 375 tokens
+Call  2: 450 tokens
+Call  3: 626 tokens
+Call  4: 778 tokens
+Call  5: 848 tokens
+Call  6: 982 tokens
+Call  7: 1099 tokens
+Call  8: 1204 tokens
+Call  9: 1314 tokens
+Call 10: 1402 tokens
+Call 11: 1559 tokens
+--------------------------------------------------------------------------------
+Peak conversation call: 1559 tokens
+Total conversation tokens sent: 10637
+Final context tokens: 1602
+
+PROBES
+--------------------------------------------------------------------------------
+
+Q-1 | RETRIEVED
+Question: Which applicant am I, and what is my number?
+Answer: Сіз — **Данияр Қошан**, өтініш беруші **A-202**.
+Probe call tokens: 1624
+
+Q-2 | RETRIEVED
+Question: Which document is still missing from my file?
+Answer: Your **ID card** is still missing from your file. Your transcript was sent, but its registration in the record has not been confirmed.
+Probe call tokens: 1622
+
+Q-3 | LOST
+Question: What is my income band, and what amount does that come to?
+Answer: Сіздің табыс санатыңыз — **2**. Осы санат бойынша грант мөлшері — **150 000 KZT**, егер GPA кемінде **2.67** болып, транскрипт пен жеке куәлік жазбада болса.
+Probe call tokens: 1627
+
+Q-4 | LOST
+Question: Which day of the week can I come to the office?
+Answer: Сіз кеңсеге **бейсенбі күні** ғана келе аласыз.
+Probe call tokens: 1625
+
+Q-5 | RETRIEVED
+Question: What did I ask you about my employer?
+Answer: You asked whether a **scanned letter from your employer** would count or whether you had to provide the **original**. I explained that the official policy doesn’t specify this, and that an employer letter is not among the required documents.
+Probe call tokens: 1622
+
+Probe summary: 3/5 retrieved
+
+################################################################################
+RUN B — COMPRESSED
+################################################################################
+
+Compression command encountered...
+Compression: PARSE=OK, VALID=OK
+Compression request tokens: 1547
+
+================================================================================
+B — COMPRESSED
+================================================================================
+
+TOKENS PER CONVERSATION CALL
+--------------------------------------------------------------------------------
+Call  1: 375 tokens
+Call  2: 451 tokens
+Call  3: 597 tokens
+Call  4: 717 tokens
+Call  5: 776 tokens
+Call  6: 888 tokens
+Call  7: 1005 tokens
+Call  8: 1103 tokens
+Call  9: 1231 tokens
+Call 10: 731 tokens
+Call 11: 885 tokens
+--------------------------------------------------------------------------------
+Peak conversation call: 1231 tokens
+Total conversation tokens sent: 8759
+Final context tokens: 936
+
+COMPRESSED MEMORY
+--------------------------------------------------------------------------------
+{
+  "applicant_id": "A-202",
+  "topic": "Need-based study grant 2026",
+  "facts": [
+    "The applicant's name is Daniyar Qoshan.",
+    "The applicant sent their transcript last week.",
+    "The applicant's income band is 2, according to their family's certificate.",
+    "The applicant could not upload their ID card because their home scanner broke.",
+    "The applicant's sister, Aruzhan, applied last year and is on file."
+  ],
+  "decisions": [
+    "The applicant currently does not qualify because the ID card is not on file.",
+    "If the ID card is submitted and the GPA is at least 2.67, the grant amount for income band 2 is 150,000 KZT.",
+    "The sister's application does not affect the applicant's eligibility."
+  ],
+  "constraints": [
+    "The applicant can only come to the office on Thursdays because they have lab all week otherwise."
+  ],
+  "open_questions": [
+    "What is the applicant's GPA?",
+    "Has the transcript been accepted and added to the record?",
+    "Will the decision be made on the same day the ID card is brought?",
+    "Does a scanned employer letter count, or is the original required?"
+  ],
+  "language": "Kazakh and English"
+}
+
+PROBES
+--------------------------------------------------------------------------------
+
+Q-1 | RETRIEVED
+Question: Which applicant am I, and what is my number?
+Answer: You are **Daniyar Qoshan**, applicant number **A-202**.
+Probe call tokens: 958
+
+Q-2 | RETRIEVED
+Question: Which document is still missing from my file?
+Answer: Your **ID card** is still missing from your file.
+Probe call tokens: 956
+
+Q-3 | RETRIEVED
+Question: What is my income band, and what amount does that come to?
+Answer: Your income band is **2**, so the grant amount is **150,000 KZT**—provided your GPA is at least **2.67** and both your transcript and ID card are on file.
+Probe call tokens: 961
+
+Q-4 | RETRIEVED
+Question: Which day of the week can I come to the office?
+Answer: You can come to the office on **Thursdays**.
+Probe call tokens: 959
+
+Q-5 | RETRIEVED
+Question: What did I ask you about my employer?
+Answer: You asked whether a **scanned employer letter** would count, or whether the **original** is required.
+Probe call tokens: 956
+
+Probe summary: 5/5 retrieved
+
+================================================================================
+SUBMISSION TOKEN TABLE
+================================================================================
+Call    A — never compressed      B — compressed            
+------------------------------------------------------------
+1       375                       375                       
+2       450                       451                       
+3       626                       597                       
+4       778                       717                       
+5       848                       776                       
+6       982                       888                       
+7       1099                      1005                      
+8       1204                      1103                      
+9       1314                      1231                      
+10      1402                      731                       
+11      1559                      885                       
+------------------------------------------------------------
+PEAK    1559                      1231                      
+TOTAL   10637                     8759                      
+
+PROBE COMPARISON
+A — never compressed: 3/5
+B — compressed: 5/5
+
+Final context A: 1602
+Final context B: 936
+Final context reduction: 41.57%
+
+================================================================================
+STATE FOR SUBMISSION.MD
+================================================================================
+{
+  "applicant_id": "A-202",
+  "topic": "Need-based study grant 2026",
+  "facts": [
+    "The applicant's name is Daniyar Qoshan.",
+    "The applicant sent their transcript last week.",
+    "The applicant's income band is 2, according to their family's certificate.",
+    "The applicant could not upload their ID card because their home scanner broke.",
+    "The applicant's sister, Aruzhan, applied last year and is on file."
+  ],
+  "decisions": [
+    "The applicant currently does not qualify because the ID card is not on file.",
+    "If the ID card is submitted and the GPA is at least 2.67, the grant amount for income band 2 is 150,000 KZT.",
+    "The sister's application does not affect the applicant's eligibility."
+  ],
+  "constraints": [
+    "The applicant can only come to the office on Thursdays because they have lab all week otherwise."
+  ],
+  "open_questions": [
+    "What is the applicant's GPA?",
+    "Has the transcript been accepted and added to the record?",
+    "Will the decision be made on the same day the ID card is brought?",
+    "Does a scanned employer letter count, or is the original required?"
+  ],
+  "language": "Kazakh and English"
+}
+
+================================================================================
+PROBES FOR SUBMISSION.MD
+================================================================================
+Probe     A             B             
+--------------------------------------
+Q-1       RETRIEVED     RETRIEVED     
+Q-2       RETRIEVED     RETRIEVED     
+Q-3       LOST          RETRIEVED     
+Q-4       LOST          RETRIEVED     
+Q-5       RETRIEVED     RETRIEVED     
